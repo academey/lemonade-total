@@ -23,7 +23,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -44,123 +43,95 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <img width="600" alt="스크린샷 2024-01-02 오전 3 32 24" src="https://github.com/othneildrew/Best-README-Template/assets/14977613/6844810b-6041-47de-ae95-81a448a3f342">
+
 로그인 및 게시글 CRUD 기능을 제공하는 웹어플리케이션입니다.
 
-웹 : 
+[서버 레포](https://github.com/academey/lemonade-api)
+[웹 레포](https://github.com/academey/lemonade-web)
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+위의 레포들은 각각 github packages 에 이미지를 배포하고 있으며, 해당 레포(lemonade-total) 에서는 이를 nginx reverse proxing 설정과 레디스를 같이 띄워서 어플리케이션을 전체 구동시키는 역할을 하고 있습니다.
 
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+- Nuxt
+- Spring
+- Spring Security
+- Spring Validation
+- h2
+- Redis (세션관리를 위해 사용)
+- nginx
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+로컬에서 해당 프로덕트를 실행하기 위한 설정입니다.
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+docker-compose 가 설치되어 있어야 합니다.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. 다음과 같이 hosts 파일 설정 
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+   sudo vi /private/etc/hosts
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   ... 아래 설정 추가
+   127.0.0.1       lemonade.api.com
+   127.0.0.1       lemonade.web.com
+   ```
+2. docker 실행
+    ```sh
+   docker-compose up
+   ```
+3. http://lemonade.web.com 에 접속 후 테스트
+<img width="400" alt="스크린샷 2024-01-02 오전 3 20 02" src="https://github.com/academey/lemonade-total/assets/14977613/b6e46369-0472-4184-b91d-71a07db2bfa3">
 
-
+4. API 에 대해 테스트하고 싶다면 [Lemonade Postman](https://www.postman.com/blue-spaceship-2858/workspace/lemonade-api) 을 이용하는 것이 편리합니다.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+### 현재 서버에서 제공하는 기능들
+1. 로그인 및 회원가입 (레디스 세션)
+2. Post CRUD
+3. 권한에 따른 제어
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+### 현재 웹에서 제공하는 기능들
+1. 로그인 및 회원가입
+2. Post Read
+3. 권한에 따른 제어
 
 <!-- ROADMAP -->
 ## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+- [ ] 웹에서 Post Popup 방식으로 리스트 화면에서 Update, Delete 기능 제공하기
+- [ ] 웹 API 쪽 인터페이스 작업 추가 및 최적화
+- [ ] Nginx 설정 최적화 (static resource 등등)
+- [ ] Post List API 에 대한 캐싱
 
 
 <!-- LICENSE -->
+
+## 프로젝트에 대한 스크린샷
+### 1. 로그인
+<img width="300" alt="스크린샷 2024-01-02 오전 3 20 02" src="https://github.com/academey/lemonade-total/assets/14977613/09169b1b-77cf-43b8-bc5d-67280d8846de">
+
+### 2. 회원가입
+<img width="300" alt="스크린샷 2024-01-02 오전 3 20 06" src="https://github.com/academey/lemonade-total/assets/14977613/418001bf-3fc1-4a1f-a9fa-45d010cb5fd0">
+
+### 3. 게시글 리스트
+<img width="300" alt="스크린샷 2024-01-02 오전 3 20 16" src="https://github.com/academey/lemonade-total/assets/14977613/15ba4c8d-24d2-4f00-a48e-9927f66b7717">
+
+### 4. 게시글 디테일 (남의 게시글일 때 수정, 삭제 버튼 미노출)
+<img width="300" alt="스크린샷 2024-01-02 오전 3 20 26" src="https://github.com/academey/lemonade-total/assets/14977613/ae72c832-e1ce-4f05-a8f9-f4e9b2c35c55">
+
+### 5. 게시글 디테일 (나의 게시글이거나 ADMIN일 때 수정, 삭제 버튼 노출)
+<img width="300" alt="스크린샷 2024-01-02 오전 3 20 48" src="https://github.com/academey/lemonade-total/assets/14977613/f144900b-05a6-4e23-9f20-65989e480d1e">
+
+### 6. reverse proxy 설정
+<img width="500" alt="스크린샷 2024-01-02 오전 3 32 24" src="https://github.com/academey/lemonade-total/assets/14977613/3ab8a154-1ee4-45a9-944b-fd2a2ceb21d1">
+
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
@@ -169,63 +140,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[contributors-shield]: https://img.shields.io/github/contributors/academey/lemonade-total.svg?style=for-the-badge
+[contributors-url]: https://github.com/academey/lemonade-total/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/academey/lemonade-total.svg?style=for-the-badge
+[forks-url]: https://github.com/academey/lemonade-total/network/members
+[stars-shield]: https://img.shields.io/github/stars/academey/lemonade-total.svg?style=for-the-badge
+[stars-url]: https://github.com/academey/lemonade-total/stargazers
+[issues-shield]: https://img.shields.io/github/issues/academey/lemonade-total.svg?style=for-the-badge
+[issues-url]: https://github.com/academey/lemonade-total/issues
+[license-shield]: https://img.shields.io/github/license/academey/lemonade-total.svg?style=for-the-badge
+[license-url]: https://github.com/academey/lemonade-total/blob/master/LICENSE.txt
